@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#38BDF8</color>
+    <color name="primary_variant">#0284C7</color>
+    <color name="on_primary">#0F172A</color>
+    
+    <color name="background">#090D16</color>
+    <color name="surface">#1E293B</color>
+    <color name="surface_card">#0F172A</color>
+    
+    <color name="text_primary">#F8FAFC</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_muted">#64748B</color>
+    
+    <color name="rec_red">#EF4444</color>
+    <color name="rec_red_dark">#DC2626</color>
+    <color name="rec_badge_bg">#33EF4444</color>
+    
+    <color name="accent_blue">#38BDF8</color>
+    <color name="accent_green">#22C55E</color>
+</resources>

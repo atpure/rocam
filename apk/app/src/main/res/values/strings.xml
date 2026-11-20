@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RoCam</string>
+    <string name="server_idle">대기 중 (IDLE)</string>
+    <string name="server_recording">녹화 중 (REC)</string>
+    <string name="btn_start_recording">녹화 시작</string>
+    <string name="btn_stop_recording">녹화 종료</string>
+    <string name="dialog_settings_title">네트워크 및 제어 정보</string>
+    <string name="local_ip_label">기기 로컬 IP 주소</string>
+    <string name="http_port_label">할당된 HTTP 포트</string>
+    <string name="web_control_url_label">원격 웹 제어 URL</string>
+    <string name="api_guide_label">HTTP API 사용법</string>
+    <string name="close">닫기</string>
+    <string name="copy_url">URL 복사</string>
+    <string name="url_copied">URL이 클립보드에 복사되었습니다.</string>
+</resources>

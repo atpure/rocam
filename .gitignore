@@ -1,0 +1,27 @@
+# Android / Gradle Build
+.gradle/
+build/
+**/build/
+local.properties
+
+# Keystore & Secrets (APK 빌드 보안: 키스토어 및 비밀번호 커밋 절대 금지)
+*.jks
+*.keystore
+keystore.properties
+**/keystore.properties
+
+# Android Artifacts
+*.apk
+*.aab
+*.ap_
+
+# macOS / OS
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.idea/
+*.iml
+.vscode/
+*.swp
+*~

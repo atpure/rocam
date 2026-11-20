@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <!-- Camera Preview OpenGL Surface (True 16:9 Viewfinder maintaining 1:1 sensor geometry) -->
+    <SurfaceView
+        android:id="@+id/previewSurfaceView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="9:16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Settings Gear Icon (Opaque, top-right) -->
+    <ImageView
+        android:id="@+id/btnSettings"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Settings"
+        android:padding="8dp"
+        android:src="@drawable/ic_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/text_primary" />
+
+    <!-- Recording Status Pill (Top Center: iOS Style Red Capsule with White Text) -->
+    <LinearLayout
+        android:id="@+id/recIndicatorBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_rec_badge"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="5dp"
+        android:elevation="6dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <View
+            android:id="@+id/recDot"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_rec_dot_white" />
+
+        <TextView
+            android:id="@+id/tvRecTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:includeFontPadding="false" />
+    </LinearLayout>
+
+    <!-- iOS-Style Curved Zoom Dial Gauge (Hidden by default, appears on drag) -->
+    <com.rocam.app.ui.ZoomDialView
+        android:id="@+id/zoomDialView"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:layout_marginBottom="4dp"
+        android:visibility="gone"
+        android:alpha="0"
+        app:layout_constraintBottom_toTopOf="@id/layoutZoomPresets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Zoom Presets Selector (0.5, 1x, 2x) -->
+    <LinearLayout
+        android:id="@+id/layoutZoomPresets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/bg_zoom_container"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toTopOf="@id/btnShutterContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- 0.5x Ultra-Wide Button -->
+        <TextView
+            android:id="@+id/btnZoom05"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_zoom_item_normal"
+            android:gravity="center"
+            android:clickable="false"
+            android:focusable="false"
+            android:text="0.5"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <!-- 1.0x Main Wide Button -->
+        <TextView
+            android:id="@+id/btnZoom1"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/bg_zoom_item_selected"
+            android:gravity="center"
+            android:clickable="false"
+            android:focusable="false"
+            android:text="1x"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <!-- 2.0x Telephoto Button -->
+        <TextView
+            android:id="@+id/btnZoom2"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/bg_zoom_item_normal"
+            android:gravity="center"
+            android:clickable="false"
+            android:focusable="false"
+            android:text="2x"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Bottom Shutter Button (Center) -->
+    <FrameLayout
+        android:id="@+id/btnShutterContainer"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_marginBottom="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Outer Ring -->
+        <View
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_shutter_ring" />
+
+        <!-- Idle State: Red Circle -->
+        <View
+            android:id="@+id/shutterCircle"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_shutter_circle" />
+
+        <!-- Recording State: Smaller Red Square (Initially Gone) -->
+        <View
+            android:id="@+id/shutterSquare"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_shutter_square"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

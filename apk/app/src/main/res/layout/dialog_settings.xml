@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialogRootContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#66000000">
+
+    <LinearLayout
+        android:id="@+id/dialogCard"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_glass_card"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Dialog Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="네트워크 및 제어 정보"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/btnCloseDialog"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Close"
+                android:padding="2dp"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                app:tint="@color/text_secondary" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="12dp"
+            android:background="#334155" />
+
+        <!-- Connection Info (Clean Text Format) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="접속정보: "
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvAccessInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="192.168.0.1:8080"
+                android:textColor="@color/accent_blue"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="12dp"
+            android:background="#334155" />
+
+        <!-- REST API Guide Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HTTP REST API 사용 가이드"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvApiGuide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="#1E293B"
+            android:fontFamily="monospace"
+            android:lineSpacingExtra="2dp"
+            android:padding="10dp"
+            android:text="• GET /start : 촬영 시작\n• GET /stop : 촬영 종료\n• GET /update-text?text=문구 : 자막 변경\n• POST /update-text : JSON {\&quot;text\&quot;:\&quot;문구\&quot;}\n• GET /zoom?ratio=2.0 : 줌 배율 (0.5~10.0)\n• GET /status : 상태 확인\n• GET / : 웹 브라우저 대시보드"
+            android:textColor="#E2E8F0"
+            android:textSize="11sp" />
+
+        <!-- Close Button at bottom -->
+        <Button
+            android:id="@+id/btnCloseBottom"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="14dp"
+            android:backgroundTint="#334155"
+            android:text="닫기"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</FrameLayout>
